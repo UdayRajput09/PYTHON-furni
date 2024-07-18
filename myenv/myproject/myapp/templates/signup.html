@@ -1,0 +1,98 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+
+
+{% extends 'Header.html' %}
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+
+
+
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Register</h1>
+                </div>
+            </div>
+            <div class="col-lg-7">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+{% if msg %}
+<div class="alert alert-danger" role="alert">
+    {{ msg }}
+</div>
+{% endif %}
+
+<div class="container-sm my-5">
+    <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label class="text-black h4" for="">Select Role
+            <select name="userType" style="appearance: none;" class="btn my-5 btn-primary p-3 w-75" name="" id="">
+                <option value="buyer" class="btn btn-primary" value="">Buyer</option>
+                <option value="seller" class="btn btn-primary " value="">Seller</option>
+            </select>
+        </label>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="text-black" for="fname">Full Name</label>
+                    <input type="text" class="form-control" id="fname" name="name">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="text-black" for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="text-black" for="email">Password</label>
+                <input type="password" class="form-control" id="email" name="password">
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="text-black" for="email">CPassword</label>
+                <input type="password" class="form-control" id="email" name="CPassword">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="text-black" for="email">Mobile No.</label>
+            <input type="tel" class="form-control" id="email" name="mobile">
+        </div>
+        <div>
+            <label class="text-black mt-5" for="image">Upload Profile Picture</label>
+            <input type="file" id="image" class="mt-2" name="profile">
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary-hover-outline my-5">Register</button>
+    </form>
+
+</div>
+
+
+
+{% endblock %}
+
+</body>
+
+
+</html>
